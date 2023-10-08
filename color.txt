@@ -1,0 +1,289 @@
+❦8-bit color palette❦
+
+You have 256 color possibilities in 1 byte (0-255)
+
+First, you need a cube (cause it has 3 axis: red, green & blue) w/ an even number of points in its edges (since 256 is an even number). So you get a 6x6x6 cube (216 color possibilities). Dividing FFh (255, the max value) in six points by axis (also counting the 00h), you will get points separated by 33h (51 in decimal).
+
+Now you get 40 resting points (256-216). This gives you five "concentric" cubes (8 vertices by cube). If you trace a line between the gray vertices of these cubes (the one w/ equal values in all 3 axis), you'll discover that you just hit 10 points (5x2, the lighter an dthe darker shades of gray).
+
+You'll figure out that the 00h, 33h, 66h, 99h, CCh & FFh are all occupied by the first largest cube. So, in the hexadecimal system, you'll have free the 11h, 22h, 44h, 55h, 77h, 88h, AAh, BBh, DDh & EEh for the other cubes. So you just need to set the axis at 11h initially, and later skip between these values in the following way:
+
+Axis – 1st Byte – 2nd Byte – 3rd Byte:
+
+Gray (white-Black): increase – increase – increase
+
+Blue-Yellow: increase – increase – decrease
+
+Green-Magenta: increase – decrease – increase
+
+Cyan-red: increase – decrease – decrease
+
+Note: when you see "decrease", you'll first set it at EEh (the maximum free value) and later skip it to the lower values.
+
+***
+
+Later you organize the values in a spreadsheet program and ask to sort it ascending, and ⭑voilà⭑ (VOO-AH-LAH* – French interjection).
+
+☙Precalculated Values❧
+
+For your convenience, here are the values converted to RGB (Red-Green_Blue).
+
+***
+
+0 – 0
+1 – 33
+2 – 66
+3 – 99
+4 – CC
+5 – FF
+6 – 3300
+7 – 3333
+8 – 3366
+9 – 3399
+A – 33CC
+B – 33FF
+C – 6600
+D – 6633
+E – 6666
+F – 6699
+10 – 66CC
+11 – 66FF
+12 – 9900
+13 – 9933
+14 – 9966
+15 – 9999
+16 – 99CC
+17 – 99FF
+18 – CC00
+19 – CC33
+1A – CC66
+1B – CC99
+1C – CCCC
+1D – CCFF
+1E – FF00
+1F – FF33
+20 – FF66
+21 – FF99
+22 – FFCC
+23 – FFFF
+24 – 111111
+25 – 1111EE
+26 – 11EE11
+27 – 11EEEE
+28 – 222222
+29 – 2222DD
+2A – 22DD22
+2B – 22DDDD
+2C – 330000
+2D – 330033
+2E – 330066
+2F – 330099
+30 – 3300CC
+31 – 3300FF
+32 – 333300
+33 – 333333
+34 – 333366
+35 – 333399
+36 – 3333CC
+37 – 3333FF
+38 – 336600
+39 – 336633
+3A – 336666
+3B – 336699
+3C – 3366CC
+3D – 3366FF
+3E – 339900
+3F – 339933
+40 – 339966
+41 – 339999
+42 – 3399CC
+43 – 3399FF
+44 – 33CC00
+45 – 33CC33
+46 – 33CC66
+47 – 33CC99
+48 – 33CCCC
+49 – 33CCFF
+4A – 33FF00
+4B – 33FF33
+4C – 33FF66
+4D – 33FF99
+4E – 33FFCC
+4F – 33FFFF
+50 – 444444
+51 – 4444BB
+52 – 44BB44
+53 – 44BBBB
+54 – 555555
+55 – 5555AA
+56 – 55AA55
+57 – 55AAAA
+58 – 660000
+59 – 660033
+5A – 660066
+5B – 660099
+5C – 6600CC
+5D – 6600FF
+5E – 663300
+5F – 663333
+60 – 663366
+61 – 663399
+62 – 6633CC
+63 – 6633FF
+64 – 666600
+65 – 666633
+66 – 666666
+67 – 666699
+68 – 6666CC
+69 – 6666FF
+6A – 669900
+6B – 669933
+6C – 669966
+6D – 669999
+6E – 6699CC
+6F – 6699FF
+70 – 66CC00
+71 – 66CC33
+72 – 66CC66
+73 – 66CC99
+74 – 66CCCC
+75 – 66CCFF
+76 – 66FF00
+77 – 66FF33
+78 – 66FF66
+79 – 66FF99
+7A – 66FFCC
+7B – 66FFFF
+7C – 777777
+7D – 777788
+7E – 778877
+7F – 778888
+80 – 887777
+81 – 887788
+82 – 888877
+83 – 888888
+84 – 990000
+85 – 990033
+86 – 990066
+87 – 990099
+88 – 9900CC
+89 – 9900FF
+8A – 993300
+8B – 993333
+8C – 993366
+8D – 993399
+8E – 9933CC
+8F – 9933FF
+90 – 996600
+91 – 996633
+92 – 996666
+93 – 996699
+94 – 9966CC
+95 – 9966FF
+96 – 999900
+97 – 999933
+98 – 999966
+99 – 999999
+9A – 9999CC
+9B – 9999FF
+9C – 99CC00
+9D – 99CC33
+9E – 99CC66
+9F – 99CC99
+A0 – 99CCCC
+A1 – 99CCFF
+A2 – 99FF00
+A3 – 99FF33
+A4 – 99FF66
+A5 – 99FF99
+A6 – 99FFCC
+A7 – 99FFFF
+A8 – AA5555
+A9 – AA55AA
+AA – AAAA55
+AB – AAAAAA
+AC – BB4444
+AD – BB44BB
+AE – BBBB44
+AF – BBBBBB
+B0 – CC0000
+B1 – CC0033
+B2 – CC0066
+B3 – CC0099
+B4 – CC00CC
+B5 – CC00FF
+B6 – CC3300
+B7 – CC3333
+B8 – CC3366
+B9 – CC3399
+BA – CC33CC
+BB – CC33FF
+BC – CC6600
+BD – CC6633
+BE – CC6666
+BF – CC6699
+C0 – CC66CC
+C1 – CC66FF
+C2 – CC9900
+C3 – CC9933
+C4 – CC9966
+C5 – CC9999
+C6 – CC99CC
+C7 – CC99FF
+C8 – CCCC00
+C9 – CCCC33
+CA – CCCC66
+CB – CCCC99
+CC – CCCCCC
+CD – CCCCFF
+CE – CCFF00
+CF – CCFF33
+D0 – CCFF66
+D1 – CCFF99
+D2 – CCFFCC
+D3 – CCFFFF
+D4 – DD2222
+D5 – DD22DD
+D6 – DDDD22
+D7 – DDDDDD
+D8 – EE1111
+D9 – EE11EE
+DA – EEEE11
+DB – EEEEEE
+DC – FF0000
+DD – FF0033
+DE – FF0066
+DF – FF0099
+E0 – FF00CC
+E1 – FF00FF
+E2 – FF3300
+E3 – FF3333
+E4 – FF3366
+E5 – FF3399
+E6 – FF33CC
+E7 – FF33FF
+E8 – FF6600
+E9 – FF6633
+EA – FF6666
+EB – FF6699
+EC – FF66CC
+ED – FF66FF
+EE – FF9900
+EF – FF9933
+F0 – FF9966
+F1 – FF9999
+F2 – FF99CC
+F3 – FF99FF
+F4 – FFCC00
+F5 – FFCC33
+F6 – FFCC66
+F7 – FFCC99
+F8 – FFCCCC
+F9 – FFCCFF
+FA – FFFF00
+FB – FFFF33
+FC – FFFF66
+FD – FFFF99
+FE – FFFFCC
+FF – FFFFFF
+

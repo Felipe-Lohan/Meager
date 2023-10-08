@@ -1,0 +1,55 @@
+***MIT-MAGIC-COOKIE-1 - BILINGUAL QUЕЅТІОΝ / QUESTÃO BILÍNGUE - English/Inglês & Portuguese/Português***
+
+***MIT-MAGIC-COOKIE-1 doesn't let me run GUI commands as root***
+
+First of all, it seems like an "apocalyptic log" (if you don't know what is it, see in the link below):
+
+https://web.archive.org/web/https://allthetropes.org/wiki/Apocalyptic_Log
+
+I use the PureOS GNU/Linux distro (based on Debian/Ubuntu). I installed XDM as my display manager. After I logged into a X session as root, I got a bug. I can't run GUI commands as root in a non-root X session anymore. I got error messages saying that my MIT-MAGIC-COOKIE-1 is wrong. It seems to be related to the .Xauthority file or the $XAUTHORITY variable.
+
+I saw in several forums in the internet several palliatives for the problem. To run xhost as non-root with its arguments in various forms; but this disables the authentication of the system, opening security vulnerabilities; furthermore, it has to be done every X session. To run "sudo -sE"; but it this preserves the non-root environments. To run "su-to-root -X -c [command] %U"; it worked. To run "ssh -YXC [user]@[machine-name] [command]"; it worked. But these are workarounds that doesn't fix the original issue.
+
+"DISPLAY=:0 /usr/bin/xhost +local:" didn't worked. Neither "su - root -c [command]". Neither "touch ~/.Xauthority; xauth generate $DISPLAY . trusted; xauth add ${HOST}$DISPLAY . $(xxd -l 16 -p /dev/urandom); xauth merge .Xauthority"; it gave me the error "unable to rename authority file /var/lib/xdm/authdir/authfiles/, use /var/lib/xdm/authdir/authfiles/-n".
+
+After some research (in that the x11vnc package helped me, through the "x11vnc -auth guess" command), I just discovered that the file that contains the right magic cookie is /var/lib/xdm/authdir/authfiles/A\:0-[whatever]. Strangely, copying it to be the new .Xauthority file simply didn't worked for the first time, but did in the second one. So I made an "export XAUTHORITY="/var/lib/xdm/authdir/authfiles/A:0-[whatever]"" and this seemed to fix the issue. However, when I made an "export XAUTHORITY="/var/lib/xdm/authdir/authfiles/*"", it didn’t worked; but the strangest is that an "echo $XAUTHORITY" shows  the full file path.
+
+Also, doing "ps -elF | grep xorg" and exporting it to a text file helps showing what authentication file Xorg is using.
+
+Also, I erased both the .Xauthority file and the $XAUTHORITY variable from my non-root user, and rebooted my device, to see if it will have any side-effects on this account. Strangely, before the reboot, the non-root user can run GUI commands even without them. After the reboot, the $XAUTHORITY variable from my non-root user was pointing to /tmp/.Xauth[whatever].
+
+Also, I saw that in every time I reboot the computer, the non-root user receives a new magic cookie, that matches with the A\:0-[whatever] file (an hexdump showed that they contained matching hex strings).
+
+Also, I have installed in my machine the Trisquel distro (also based on Debian/Ubuntu) in dual-boot regime. It uses LightDM as its display manager, pointing to the "/var/run/lightdm/root/:0" file. I made an experiment: I erased both the .Xauthority file and the $XAUTHORITY variable from my root user, and rebooted my device. Every time I rebooted my device, the $XAUTHORITY variable was automatically refreshed, point to "/home/trisquel/.Xauthority" (the .Xauthority file from my non-root user).
+
+That raises a series of questions: why the root user stopped receiving from the system the random magic cookies? What process generates and delivers these magic cookies? There is a command for the root to generate the right cookies?
+
+Note: I was expelled from Stack Exchange for being Bilingual. Fuck/Screw Stack Exchange.
+
+__________________________________________________________________
+
+***MIT-MAGIC-COOKIE-1 não me deixa executar comandos gráficos como root***
+
+Primeiro de tudo, isso parece um "apocalyptic log" (se você não sabe o que é isso, veja no link abaixo):
+
+https://web.archive.org/web/https://allthetropes.org/wiki/Apocalyptic_Log
+
+Eu uso a distro de GNU/Linux PureOS (baseada no Debian/Ubuntu). Eu instalei o XDM como o meu display manager. Depois de logar na sessão X como root, eu tive um bug. Eu não consigo mais rodar comandos gráficos como root numa sessão X de não-root. Recebi mensagens de erro dizendo que meu MIT-MAGIC-COOKIE-1 está errado. Isso parece estar relacionado ao arquivo .Xauthority ou à variável $XAUTHORITY.
+
+Eu vi em vários fóruns na internet várias soluções paliativas para o problema. Pra rodar o xhost como não-root com seus argumentos em várias formas; mas isso desabilita a autenticação no sistema, abrindo vulnerabilidades de segurança; além do mais, isso tem que ser feito em toda sessão X. Pra rodar "sudo -sE"; mas isso preserva o ambiente de não-root. Pra rodar "su-to-root -X -c [comando] %U"; isso funcionou. Pra rodar "ssh -YXC [usuário]@[nome-da-máquina] [comando]"; isso funcionou. Mas esses são paliativos que não corrigem a questão inicial.
+
+"DISPLAY=:0 /usr/bin/xhost +local:" não funcionou. Nem "su - root -c [comando]". Nem "touch ~/.Xauthority; xauth generate $DISPLAY . trusted; xauth add ${HOST}$DISPLAY . $(xxd -l 16 -p /dev/urandom); xauth merge .Xauthority"; isso me deu o erro "unable to rename authority file /var/lib/xdm/authdir/authfiles/, use /var/lib/xdm/authdir/authfiles/-n".
+
+Após alguma pesquisa (em que o pacote x11vnc me ajudou, através do comando "x11vnc -auth guess"), eu descobri que o arquivo que tem o magic cookie certo é /var/lib/xdm/authdir/authfiles/A\:0-[qualquer coisa]. Estranhamente, copiando-o para ser o novo arquivo .Xauthority simplesmente não funcionou pela primeira vez, mas funcionou pela segunda. Então eu fiz um "export XAUTHORITY="/var/lib/xdm/authdir/authfiles/A:0-[qualquer coisa]"" e isso pareceu corrigir a questão. Porém, quando eu fiz um "export XAUTHORITY="/var/lib/xdm/authdir/authfiles/*"", não funcionou; mas o mais estranho é que um "echo $XAUTHORITY" mostra o caminho do arquivo completo.
+
+Também, executando o comando "ps -elF | grep xorg" e exportando-o para um arquivo de texto ajuda a mostrar qual arquivo de autenticação o Xorg está usando.
+
+Também, eu apaguei tanto o arquivo .Xauthority e a variável $XAUTHORITY da minha conta de não-root, e reiniciei a minha máquina, pra ver se isso irá ter algum efeito colateral nessa conta. Estranhamente, antes do reboot, o usuário não-root podia rodar comandos gráficos mesmo sem eles. Depois do reboot, a variável $XAUTHORITY da minha conta de não-root estava apontando para /tmp/.Xauth[qualquer coisa].
+
+Também, eu vi que toda vez que eu reinicio a minha máquina, o usuário não-root recebe um novo magic cookie, que bate com o arquivo A\:0-[qualquer coisa] (um hexdump mostrou que eles contém strings hexadecimais que batem).
+
+Também, eu tenho instalada em minha máquina a distro Trisquel (também baseada no Debian/Ubuntu) em regime de dual-boot. Ela usa o LightDM como seu display manager, apontando para o arquivo "/var/run/lightdm/root/:0". Então eu fiz uma experiência: eu apaguei tanto o arquivo .Xauthority e a variável $XAUTHORITY da minha conta de root, e reiniciei a minha máquina. Toda vez que eu dava reboot na minha máquina, a variável $XAUTHORITY era recarregada automaticamente, apontando para "/home/trisquel/.Xauthority" (o arquivo .Xauthority do meu usuário de não-root).
+
+Isso leva à uma série de questões: porque o usuário root parou de receber do sistema os magic cookies aleatórios? Qual processo gera e entrega esses magic cookies? Existe um comando para o root gerar os cookies certos?
+
+Nota: Eu fui expulso do Stack Exchange por ser bilíngue. Foda-se o Stack Exchange.

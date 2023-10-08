@@ -1,0 +1,33 @@
+***Create Bootable USB Disks That Are Also Storage - In Linux***
+
+By Felipe Lohan Pinheiro da Silva
+
+Download the .iso from the site you want (for example https://trisquel.info/, https://www.pureos.net/, https://guix.gnu.org/, etc).
+
+burn the iso into the USB disk with the commands dd, dcfldd, dc3dd, or ddrescue.
+
+After finishing it, power-off your disk with the command "udisksctl power-off -b /dev/sd[whatever]".
+
+Eject the disk and re-insert it.
+
+Umount the disk with the command "umount /dev/sd[whatever]*" (note the asterisk).
+
+Run the command "fdisk -w never /dev/sd[whatever]". Inside the program, type "F" to list the free unpartitioned space of your disk. Copy the number under "Start" column. Type "n" to create a new partition; select "p" for primary; later use the default partition number presented and copy this number; as the first sector, paste the number you had copied under the "Start" column of the the free unpartitioned space; later use the default last sector number presented; it will create a new partition of type "Linux".
+
+Type "t" to change the partition type; paste the partition number you had copied; type 0c to change it to "W95 FAT32 (LBA)".
+
+Type "w" to write your changes to the disk and exit the program.
+
+Run the command "cfdisk /dev/sd[whatever]". There, you'll see a partition of the type "W95 FAT32 (LBA)" listed. Copy its path (it should be /dev/sd[whatever letter][whatever number]. Quit the program.
+
+Now you'll use the path you copied. Run the command "mkfs.vfat -F 32 -n [a name of your choice] /dev/sd[whatever letter][whatever number]"; according to the program's documentation, the volume name can be up to 11 characters long; try to use uppercase letters without spaces or special (non-ASCII) characters for a better compatibility.
+
+Run again the command "cfdisk /dev/sd[whatever]". Move the cursor to the partition "/dev/sd[whatever letter][whatever number]"; in the lower panel, the filesystem should be listed as "vfat". Note: sometimes, you may have to umount and power-off your disk, and later re-insert it, to the proper information be updated in the cfdisk. 
+
+Run the command "umount /dev/sd[whatever]*" (note the asterisk). Later run the command "udisksctl power-off -b /dev/sd[whatever]".
+
+Eject the disk and re-insert it. Both the operating system image and the storage partitions should be recognized.
+
+As a last test, you could run the QEMU virtual machine, using "/dev/sd[whatever]" as a disk drive. If all is going well, it should boot. After the boot you can close the QEMU.
+
+Keep in mind that this newly created storage partition may not be recognized in Microsoft Windows.
