@@ -1,0 +1,31 @@
+Creating (Or Restoring) A Protective MBR (Master Boot Record)
+
+By Felipe Lohan Pinheiro da Silva
+
+***
+
+The MBR have 512 bytes; remember that addresses start at 0h, NOT one (1).
+
+From 000h to 1BDh (445 decimal), write whatever you want.
+
+from 1BEh (446 decimal) to 1CDh (461) write:
+
+00h - 00h 00h 00h - EEh - FFh FFh FFh - 01h 00h 00h 00h - FFh FFh FFh FFh
+
+Where:
+
+*00h to disable the classical bootable flag.
+
+*00h 00h 00h is the starting CHS (Cylinder - Head - Sector) value.
+
+*EEh is the signature for the GPT (GUID Partition Table).
+
+*FFh FFh FFh is the ending CHS value.
+
+*01h 00h 00h 00h is the first LBA (Logical Block Addressing) in the partition
+
+*FFh FFh FFh FFh is the total number of sectors in the partition
+
+From 1CEh (462 decimal) to 1FDh (509 decimal), write whatever you want.
+
+Finish with 55h - AAh (the MBR signature).

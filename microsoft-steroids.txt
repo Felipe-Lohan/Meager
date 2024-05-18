@@ -1,0 +1,53 @@
+Microsoft Programs On Steroids
+
+By Felipe Lohan Pinheiro da Silva
+
+Ok, the word “Steroid” on the title may seem too strong (due to their negative health effects in the bodybuilding industry), but you got my point anyway.
+
+***[Notepad]***
+
+Original Microsoft’s Notepad, despite being the standard text editor for its Windows operating system, isn’t the preferred one of many users.
+
+Notepad needs builtin options like:
+
+•Changing the colors of the font and the background.
+
+•Bracket matching: when putting a cursor over a [parenthesis/brackets/quotation marks], shows its matching one.
+
+•Auto-closing the [parenthesis/bracket/quotation mark] when one is opened.
+
+•Autotype: when a user already have some words in his file and start to type a new word, a menu appears, letting him to choose one of the matching words, according to the first letters typed.
+
+•Support for open source [plugin/extension]s
+
+•[Spell/Grammar] checker (via plugins, see above).
+
+•Syntax highlighting (via plugins, see above).
+
+•Support for opening multiple files in new tabs.
+
+•Line numbers.
+
+•Menu to choose the line-ending standard (CRLF, LF, etc.), and the text encoding (UTF-8, [İSO/İEC]8859, etc.).
+
+So you may ask, if Microsoft had the Atom text editor (via Github) (and “sunsetted” it), and now have the VS Code (and its libre incarnation, VS Codium), ¿ why to worry make these changes in the Notepad. Answer: just to improve the standard product, that comes embedded in the operating system.
+
+***[İE (İnternet Explorer)]***
+
+İn first place, they shouldn't even make the Edge browser. What they should to do is a continuing development in the İE itself. İt should include the support for the latest available technologies, such:
+
+•HTML5.
+
+•Javascript.
+
+•[plugin/extension]s for Firefox and Chromium.
+
+•Custom themes for web pages (background colors, fonts type, font size)
+
+•Codecs for multimedia file formats (images, audio, and videos).
+
+***[Wordpad]***
+
+The middle son of the Windows family, it's neither simple like a text editor, nor feature-rich like a full-fledged word processor. İt needs at least:
+
+•An option to export the file to the PDF (or, who knows, also to the EPUB) format.

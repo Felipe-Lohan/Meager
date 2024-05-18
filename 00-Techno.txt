@@ -1,0 +1,846 @@
+﻿❦Technological Standards❦
+
+By Felipe Lohan Pinheiro da Silva
+
+See my file about licensing to know more about it.
+
+Note: For each article, when applicable, see the referring drawing ƒіles ƒіrst.
+
+☙About Standards❧
+
+¿ Do you know the difference between prescriptive and descriptive standards?
+
+Prescriptive standards: Enforced from the top-to-bottom.
+
+Descriptive standards: Merely recommended.
+
+So all these standards are descriptive, NOT prescriptive. They’re just recommendations, NOT enforced.
+
+☙About The Libre Computing And Hardware Speciƒіcations❧
+
+İ don’t agree w/ the BSD community in embedding binary blobs, even that these are proprietary ƒіrmware running in devices outside the kernel, as İT’SN’T freedom. On other hand, İ don’t completely agree w/ FSF deƒіnition of freedom, as İ consider that viral licenses aren’t freedom. So İ reject proprietary code, even ƒіrmware, and İ reject viral licenses.
+
+People criticizes FSF for not endorsing platforms w/ proprietary components such as drivers and ƒіrmwares. But İ agree w/ the FSF here, as their role İSN’T to endorse closed platforms just because of popularity. İt’s to promote freedom.
+
+Everyone talks about “Open Source/Free Software”, and people are beginning to talking about free instruction set architectures. But no one is talking about free programming languages not built in top of C, w/out a libc6 dependency.
+
+The problem is that if you want to implement standard C, you have to purchase a copy of the document from İSO, THAT’SN’T libre licensed. Same goes for many İSO/İEEE/POSİX/UNİX documents, that contains many standards and hardware platforms encumbered by patents that aren’t under a libre license. A Libre computing platform can’t be truly libre in such environments.
+
+That’s why İ put these hardware and software speciƒіcation under a libre license, instead of submitting it to İSO.
+
+So İ wanted to create a LİBRE standalone systems programming language, w/ no dependencies on external languages besides the assembly/machine code. A language also not tied to a single assembler, because İ saw that different assemblers for the same architecture have different syntaxes and generate different machine codes. And also not tied to a single number system, so it can be ported to binary, ternary, or any other.
+
+❦A Note On Batteries❦
+
+The batteries have a JST socket, of common types you can purchase in stores of supplies for electronic projects.
+
+The [device/module]s of some projects have a "Flashlight" mode: it can be used as a regular flashlight or the flash of a camera.
+
+The "Direct Connection" present in some projects is a JST socket that allows the flashlight to be interfaced directly w/ the battery, to be used even when the device is turned off; other option to achieve this same result would be to have "always live" connectors (that provides power even when the device is turned off) for the modules of these devices.
+
+The switch that turns o[n/ff] the flashlight operates under this Direct Connection. However, the module/device have a circuitry that prevents overcharge of the flashlight if both the switch that operates the "flashlight mode" and the operating/embedded system set the intensity of the light in the maximum level.
+
+❦A Note On Buttons❦
+
+These projects describe devices w/ buttons. 
+
+I recommend, when possible, to use a kind of “soft” button, as I see that they’re more more durable than the “click” buttons (like the ones commonly used in many common models of mouse) ¡ Fucking planned obsolescence!
+
+❦A Note On Storage Devices❦
+
+İ recommend to only put sockets to storage devices w/ libre speciƒіcations; to date, the following accomplish this recommendation:
+
+*CF Cards.
+
+*“Slim” versions of USB keys/drives.
+
+*SATA devices.
+
+It’sn’t clear to me whether MMCs (MultiMediaCards) also qualify to this recommendation or not.
+
+❦Linear Pointing Device❦
+
+This is a project of a pointing device (like a [mouse/🖱️], trackball, touchpad, [pointing stick/clit mouse], stylus-pen, etc.) that, as the name suggests, uses a linear motion. It resembles an hybrid of a gaming joystick (🕹️) w/ an automobile's automatic transmission [shifter / lever / stick], but only moves [for / back]wards.
+
+The trigger makes the click.
+
+The button labelled "Change Buttons" changes what click is made w/ the push of the trigger (primary, middle, or secondary click).
+
+The button labelled "Change Buttons" changes the motion modes (see bellow).
+
+The motion modes are:
+
+*Pointer: Moves the pointer arrow. It runs through a spiral (or spiral-like) path in the [display/monitor]. The lowest position in the handle is the center of the display; the top position in the handle puts the pointer near the outer limits of the display.
+
+*Vertical scroll: replaces the vertical scrolling wheel of a computer mouse. The top position in the handle is the top of the scrolled page; the lowest position in the handle is the bottom of the scrolled page.
+
+*Horizontal scroll: replaces the horizontal move of the scrolling ball at the top of some specialized computer mouses (sometimes emulated w/ [Shift + scroll] ). The top position in the handle is the leftmost position of the scrolled page; the lowest position in the handle is the rightmost position of the scrolled page. Note: for systems configurated to languages w/ right-to-left writting systems (Arabic, Hebrew, etc.), this may be inverted: top to rightmost, and lowest to leftmost.
+
+*Total scroll: Scrolls in both the vertical and the horizontal axes. It works under the same operation principle as in the Pointer Mode (see the entry), but applied to the scrolling page, instead of the entire display.
+
+In short, the motion modes above uses absolute positioning.
+
+Probably, in order to use this device, specialized drivers & firmware would be needed. Needless to say that I recommend them to be libre-sourced software.
+
+❦Boot Over Web (B.O.W) Specification❦
+
+In European Portuguese: “Arranque Pela Rede” (AH-HAN*-KE PE*-LAH HE*-DE).
+
+A modification in the firmware of your machine, or perhaps an off-board circuit added to it, lets you boot from the web.
+
+You turn on your machine, it will pass the control to the off-board circuit or to other part of the firmware, that will download a virtual image file (for example, an .iso, .img, etc.) from an internet server/address indicated by the user, later passing the control back to the firmware, that will boot that virtual image as if it were a normal physical storage media (see also the “Qüickboot RAM” article).
+
+It could also do it w/ a torrent, via either a .torrent file or a magnet link.
+
+The B.O.W firmware/circuit could also have support to extracting virtual images inside common open/libre [compressed/compacted] file formats, like .zip, .tar, .xz, .bz2, .gz, etc.
+
+For example, you could download FSF-endorsed distros, extract and run them, w/out having any physical storage device (supposing it’s a live image). You could test it using the image files in the following links:
+
+http://www.gnu.org/software/guix/download/
+
+http://www.gnu.org/distros/free-distros.html
+
+If the circuit uses an internal wireless/Wiƒі modules, it should be also one w/ libre speciƒіcations. If it uses an external one instead, the circuit itself should provide only libre ƒіrmware & drivers. It would allow the machine to boot from the web in a libre way.
+
+❦Qüickboot RAM❦
+
+It’s a volatile RAM (Random Access Memory) circuit that is treated as a non-volatile storage-device, ⭑as long as the computer is turned on⭑. The bios/firmware configuration of your computer will have a option to boot from it. So you can burn a operating system image file in it (for example, an .iso, .img, etc.), reboot the computer, and install the operating system (or use it, in the case of live images) from it.
+
+The bios/firmware configuration of your computer will have a option to treat it as a standard RAM circuit instead.
+
+The circuit could include a battery to retain the data in case of power outages/blackouts/cuts/failures of a few seconds or minutes (see the article "A Note On Batteries" for more on the theme).
+
+To date Qüickboot RAM circuits from 2 to 4 Gigabytes could be used to store the installation images of most of GNU/Linux operating systems.
+
+❦Libre SBC-[G/V]PU Speciƒіcation❦
+
+Note: To date, you can ƒіnd good [G/V]PUs ranging from 2 to 4GB internal RAM costing about USD$150.
+
+☙Glossary❧
+
+[G/V]PU: [Graphics/Video] Processing Unit.
+
+SBC: Single-Board computer.
+
+☙Specification❧
+
+This is the speciƒіcation of [G/V]PU board/card that can be turned into a SBC when it’sn’t attached to a desktop computer or a [G/V]PU rack.
+
+It uses only open/libre speciƒіed internal ISA, memory modules, ƒіrmware & connectors.
+
+If the circuit uses an internal Bluetooth and/or wireless/Wiƒі modules, it should be also one w/ libre speciƒіcations. If it uses an external one instead, the circuit itself should provide only libre ƒіrmware & drivers. It would be nice to allow the machine to boot from the web in a libre way, according to the “Boot Over Web” (B.O.W) speciƒіcation (see the ƒіle).
+
+When it’sn’t attached to other device, it’s powered by a power connector. The default recommended option is an adapter that converts the power supply of the location you’re (your house, for example) to the connector of the Libre Cable-Connector speciƒіcation (see the ƒіle).
+
+This same circuit board can be used as a board for the “Libre Cell Phone Speciƒіcation” (see its file), provided that you put a battery for it (see the article "A Note On Batteries" for more on the theme), a cell phone-like case and a miniature display for it.
+
+This same circuit board could be used as a CPU in the Libre ATX specification (see its files).
+
+❦Endless Looping Data Device❦
+
+It’s a data device (either a volatile RAM or a non-volatile storage device) that’s sectioned in ⭑Banks⭑. First, the operating/embedded system have to deal w/ the Bank position: stay in the current bank, skip a bank forward or skip a bank backwards. So begins to work, requesting to retrieve (read) or writing data in the destination bank.
+
+Here you have two types of data devices: The Open-Infinite and the Closed-Loop ones.
+
+For the Open-Infinite ones, just imagine a theoretical paper/magnetic tape that goes from the infinite (backwards) to the infinite (forward). You can skip ⭑ad æternum⭑ (“forever/at the infinity/ in an endless manner” in Latin) forward or backwards.
+
+For the Closed-Loop ones, just imagine a theoretical paper/magnetic tape in that the last bank of the device is attached next to the first one. So if your system requests to skip forward in the last bank, you return to the first one; if it requests to skip backwards in the first bank, you go to the last one.
+
+The six operations you have at your disposition are:
+
+*Write normally (akin to writing a traditional/classic East Asian text in a scroll in the normal top-to-bottom direction).
+
+*Write backwards (akin to writing “bottom-up”, regarding the operation above).
+
+*Reading normally (like reading in the same direction, like the “write normally” operation).
+
+*Reading backwards (like reading in the same direction, like the “write backwards” operation).
+
+*skip a block in the normal direction (akin to jumping/skipping to the next paragraph in an occidental text).
+
+*skip backwards a block (regarding the operation above, it’s akin to jumping/skipping to the previous one).
+
+Keep in mind that this isn’t necessarily a physical scheme, much less w/ moving parts; in other words, a Closed-Loop doesn’t need to necessarily work in a physical circular fashion, like a magnetic tape or a physical disc. For example, you could have a solid-state device whose logical circuits works that way. Also, keep in mind that in physical schemes (like tapes), you may need to rewind all the device if you send a command to jump from the last block to the first one (looping).
+
+Example: You could have a device w/ 16 banks of 16 Gigabytes each, in a total of 256 Gigabytes.
+
+☙File Systems❧
+
+Each bank should be formatted w/ its own boot[sector/code], partition table & filesystems formatting.
+
+☙Shutting down the device❧
+
+If the bank position is stored in a volatile memory circuit, the data is lost after shutting down. If it’s stored in a non-volatile data-storage circuit, or the device is a non-solid-state one (like a paper/magnetic tape, for example), you will be at the same bank when turning it on again.
+
+❦Libre Solid-State Storage Devices❦
+
+Notes:
+
+*In all variations, each bit is stored in a cell in a hex grid to maximize space.
+
+*All storage devices have a physical top notch to let both the user & the reading/writing drive to distingüish the correct insertion side.
+
+*For the "Pencil" types bellow - To write/alter/erase the data for the OMR, you need to fill or erase the cells by yourself w/ the pencil and eraser/rubber (¡ Yes, programming literally by hand!), unless you have a more advanced machine that does it for you in an automated way.
+
+☙Magnetic❧
+
+It's a card coated in magnetic material; the magnetic surface is coat w/ a coat of protective resine/plastic material (or other material) that DOESN'T prevent the magnetic reading/writing operations. In the reader reading/writing drive (akin to tape/floppy/optical drives), there's a grid of static reading/writing heads (akin to the ones used in cassette tapes or magnetic hard disk drives (HDDs), but STATIC).
+
+☙Barcode❧
+
+The barcode reader has a grid of static optical reading scanners.
+
+To write data, you need to print a barcode; to do so, you need to have a software (¡ Libre, please!) to convert your digital data to a barcode format.
+
+☙Pencil - Optical mark recognition (OMR)❧
+
+"Optical mark recognition" is a technology to read the markings of a pencil in an optical way.
+
+The reading device has a grid of static optical reading scanners.
+
+☙Pencil - Electric recognition (OMR)❧
+
+Since the pencil lead/graphite conducts electricity, the reading device has a grid of static electric reading heads. Read the digital data, each reading head will check if the given cell is conducted w/ electricity (in other words, covered w/ pencil lead/graphite) or not.
+
+❦Booting Modes❦
+
+Data (be machine instructions or human-readable data) doesn’t necessarily need to come from a formatted filesystem, or even what would be classified as a “file”; it can simple come in the form of a simple stream of data. That said, let’s see the theoretical forms of booting a machine.
+
+Bare Metal mode: The storage device simple contains the digital machine code necessary to booting your system, in an non-formatted way.
+
+Formatted mode: The storage media is formatted w/ a partition table and filesystems (for example, an optical disk formatted w/ .iso/.udf, a storage device formatted w/ GPT – GUID Partition Table, etc.). In this case, the machine have a circuit containing a very basic/simple embedded system that have drivers/firmware (Libre ones, both the embedded system and the drivers/firmware, ¡ please!) to read into the bootsector, partition table & filesystems of these media. So the same storage media could provide files containing bootcode and operating/embedded systems for several computer architectures.
+
+Bytecode: Like the "Bare Metal" and the "Formatted" modes, but the it uses the instruction set of a bytecode. So computers from the most diverse architectures could have a circuit containing an interpreter/emulator for this bytecode, being capable to boot it.
+
+❦8-bit Braille Encoding❦
+
+Braille is specially good because it’s a language-neutral representation of many languages.
+
+1 Byte is usually 8 bits, composed of 2 nibbles (a set of 4 bits that can be represented by a hexadecimal numeral). Braille pattern also can be represented like that, as it haves 8 dots. So both braille and a byte have 256 possible combinations. So this encoding allows to represent each symbol w/ a single byte.
+
+The numbering of the dots is top-to-bottom, going in the direction of the writing. So, in a left-to-right pattern, the dots 0 to 3 goes in the left column, and the dots 4 to 7 in the right one. Each vertical column represents a nibble (as it haves 4 dots); each bit controls a single dot: the lower bit controls the dot 0 and the higher one the dot 7; for example, 128/1000.0000/80h is ⢀. Keep in mind that this is a different pattern than the traditional braille numbering.
+
+İn this standard, the dots are circular and the ones in the second column are a bit lower than the ones in the first one; they’re arranged in a hexagonal pattern, so you can see the direction of writing better, except in simple/low resolution displays, where they can be in the square/straight pattern; so unlike the “normal” braille, you could use it also right-to-left, like Arabic or Hebrew; in this case, you will mirror it, w/ the upper dots in the right column; for example, a pattern w/ only the 0 dot marked will show it marked in the upper left space in the left-to-right system and in the upper right one in the right-to-left. The marked dots are hatched and represents the number 1 (one) in binary code, and match w/ the punched holes in punched cards/tapes. The unmarked dots are hollow, NOT absent, unless in simple/low resolution displays; they represents the number 0 (zero) in binary code, and match w/ the NOT punched spaces in punched cards/tapes. The blank pattern (w/ all dots unmarked) is represented w/ absent dots in simple/low resolution displays; in displays w/ higher resolution, it’s represented w/ a symbol whose lines somewhat remembers a square bracket, w/ the non-vertical parts pointing a bit downwards in the direction of the writing; So, in a left-to-right pattern, looks like an opening square bracket (“[”), and in a right-to-left, a closing one (“]”).
+
+İt’s recommended to dot-matrix displays w/ pixels in hexagonal arrays to have then aligned in a straight line vertically and later aligned horizontally/diagonally at 60 degrees, so it can match perfectly w/ this standard, one dot per pixel. Preferentially, they should have an odd number of columns and it should begin and end in the higher position, so the display could be used for both left-to-right and right-to-left systems.
+
+İn the “crudest” form of this standard, it’sn’t possible any further formatting in the text editing. there’s also a “less crude” version, where if you put the “blank” dot pattern (0000.0000 in binary) twice, it will generate a line break; putting it three times will generate two line breaks and so on.
+
+See also the chart file w/ all the values.
+
+❦Libre Cable-Connector❦
+
+This is a kind of cable of libre specification to be used both inside the computer case and for connecting external devices.
+
+Each “Data” connector is fully capable of both transmit and receive data (bidirectional). To date, refers to optical fiber, as it’s the fastest option.
+
+The cable can be spun to be attached in three different positions and still work, as all the three electrical and the three data plugs in it are modular and interchangeable.
+
+The seventh central pin is the earthing ground (⏚).
+
+❦Libre Camera Specification❦
+
+İ created this specification for the future time when mankind develops some kind of reusable/erasable/[read/write – RW] photographic/video film. Alternatively, this film could be usable inside an electronic device, that would turn the film into a storage device, like older floppies and cassette tapes. İf only libre circuits and logic components are used in this electronic device, this would lead to a true libre storage device, suitable for software development or simply novelty/hobby purposes.
+
+***
+
+It’s recommended also the use of the Libre cable-connector (see the respective files). The technologies of the camera uses hex patterns to maximize space.
+
+In the photographic/video film, the image & audio (if applicable) are encoded together and “printed” in the film in digital form as a matrix barcode in a hex pattern. Other devices can decode the audiovisual material.
+
+In the multiple lenses version, you have multiple lenses, each one w/ a filter of one color. Later, they’re superimposed to form the color image.
+
+In the “spinning filters” version, you have a single lens, but multiple color filters spinning in an axis. The data received by the lens when it’s under different filters is superimposed to for the image.
+
+If you use the device only to record audio, a whole section of the matrix barcode will be allocated to used to encode it, conseqüently generating a higher-quality audio.
+
+❦Crude-Hexadecimal Character encoding❦
+
+This is a character set for just the representation of hexadecimal values; it’s also a guideline for the creation of fonts for this encoding, that only need 16 symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [10/Ah], [11/Bh], [12/Ch], [13/Dh], [14/Eh] and [15/Fh]. It’s recommended to be monospaced, of course.
+
+The encoding detects the first and second nibbles of each byte:
+
+0h = 0000b
+1h = 0001b
+2h = 0010b
+3h = 0011b
+4h = 0100b
+5h = 0101b
+6h = 0110b
+7h = 0111b
+8h = 1000b
+9h = 1001b
+[10/Ah] = 1010b
+[11/Bh] = 1011b
+[12/Ch] = 1100b
+[13/Dh] = 1101b
+[14/Eh] = 1110b
+[15/Fh] = 1111b
+
+So, if the text is horizontal, the encoding packs the nibble vertically; if the text is vertical, it’s packed horizontally. Doing so allows you to avoid confusion/mistakes about what nibble belongs to each byte.
+
+Example: In the [15/Fh][14/Eh] byte (1111.1110), “F” is above and “E” is bellow in horizontal text; they’re side-by-side in the vertical text.
+
+In the “crudest” form of this standard, it’sn’t possible any further formatting in the text editing; this form effectively turns your text editor into a hexadecimal editor. There’s also a “less crude” version, where if you put the 00h byte (0000.0000 in binary) twice, it will generate a line break; putting it three times will generate two line breaks and so on.
+
+Also, see the drawing files on the hexadecimal representation. It presents a proposal for glyphs ranging from [10/Ah] to [15/Fh].
+
+Number represented → Number of dots/balls:
+
+[10/Ah] = 1
+[11/Bh] = 2
+[12/Ch] = 3
+[13/Dh] = 4
+[14/Eh] = 5
+[15/Fh] = 6
+
+This representation is independent from any left-to right writing system and even from the Hindu-Arabic numeral system itself, as it can be used in any [zero/0] to [nine/9] numeral system;
+
+For example, you program in hexadecimal using Eastern Persian numerals (see the drawing file on the unified Eastern Persian numerals) in a right-to-left direction, using also the aforementioned glyphs.
+
+Also, it’s possible to program using East Asian ideograms («汉字» in simplified Chinese, 漢字 in other forms) (here, they’ren’t merely logograms as you’re dealing w/ numbers):
+
+0 = 零/0 (you can use either the traditional character or the occidental dotted zero present in some GNU/Linux fonts; see the drawing file.)
+1 = 一
+2 = 二
+3 = 三
+4 = 四
+5 = 五
+6 = 六
+7 = 七
+8 = 八
+9 = 九
+Ah (10) = 十
+
+(See the drawing file)
+
+For the symbols Bh (11) to Fh (15), you use the aforementioned proposed glyphs. Note also that the ideograms are enclosed in a box, to avoid glyph confusion, except the occidental dotted zero and the number four (that is already enclosed in a box).
+
+Also, see my drawing file on the unified Brahmic numerals for programming (and also other purposes).
+
+❦Wireless Audio Specification❦
+
+“Wireless is rather like magic when you come to think of it.” – “The Enchanted Castle”, by Edith Nesbit.
+
+***
+
+A program converts audio into a hex barcode (hex to maximize space) that will be displayed in the screen in a fast seqüence. A specialized barcode reader device will turn it back in sound to send it to the [ear/head]phones.
+
+It’s also possible to send the signal of the “audio/out” to wireless audio transmitter device, that sends signal to nearby devices (for example, via Bluetooth, etc.). This device could also include a 360º infrared audio transmitter.
+
+The aforementioned barcode reader device could also have an embedded wireless audio receiver & decoder (for the aforementioned example of bluetooth, for example). This device could also include the infrared audio receiver.
+
+❦Libre All-İn-One Mouse-Camera-Flashlight Specification❦
+
+The optical mouse uses a lens to detect the user’s movements. The webcam and the digital camera uses lenses to detect the images. ¿ So why not develop a device that uses the same lens for these purposes, being possible to use it as a webcam, digital camera or mouse? ¿ And the same light to use as a flashlight, a camera flash and to send the necessary light to the mouse?
+
+☙Device outline❧
+
+The device have a flat end near the wire and the buttons, and haves support buttons on it, to allow the device to stand up when using it in the webcam mode.
+
+İt’s recommended also the use of the Libre cable-connector (see the respective files).
+
+☙Upper Buttons & Its Functions❧
+
+Five buttons: Right, Left, Lower, Upper & Shift.
+
+Left: Scrolling Left.
+
+Right: Scrolling Right.
+
+Lower: Scrolling Down.
+
+Upper: Scrolling Up.
+
+Shift+Left: Left Click.
+
+Shift+Right: Right Click.
+
+Shift+Lower: Middle (3rd/third) Click.
+
+Shift+Upper: reserved for operating/embedded system, program or user implementation.
+
+☙Top side❧
+
+The surface is made of a transparent material, because inside the device there’s a mini-display that’s used in the mouse, webcam and digital camera modes. İt’s recommended to create libre-licensed files, also obviously under libre-licensed formats, to be used by 3D-printers, to use as spare/replacement parts to this surface, as the 3D-printing industry is beginning to test polymers to transparent 3d-printing.
+
+☙Bottom side❧
+
+There’s a switch to chose between the flashlight, mouse, webcam and digital camera modes.
+
+Microphone – used to record audio.
+
+Sound speaker – used to play the audio of the sound files.
+
+Lens – Used both in the mouse mode to detect the movements, and as a lens to the digital camera/webcam mode.
+
+LED/Light – Used to light the sensor for the mouse mode, as a flash for the webcam and digital camera mode, or the lightsource for the flashlight mode.
+
+You will see a battery area (see the article "A Note On Batteries" for more on the theme). It’s for when you’re using the digital camera mode or using the device as a flashlight, when they’ren’t connected to the cable; or any of the other modes, if they're wireless.
+
+You will see a storage device area. That area have a female connector (I recommend the Libre cable-connector, see its drawing file) in that you'll connect a card reader module (see the article "A Note On Storage Devices" for more on the theme).
+
+☙Modes❧
+
+*Operating mode: Uses as a pointer device. The mini-display displays a miniature of your computer screen while in this mode. If your computer have no monitor attached, it will serve as a primary monitor, but displaying a miniature of the high resolution ones (for example, a miniature of the popular 1920 x 1080 resolution); probably it will require a special driver or firmware (of course a libre-licensed one).
+
+The microphone can be used by the audio recording programs of your operating system while in this mode.
+
+The speaker can be used by your operating system as a beep/buzzer or to play audio files while in this mode.
+
+The operating system could control the light/LED, probably through a special driver or firmware (of course libre-licensed ones), while in the mouse mode. Keep in mind that you will lose the movement of your pointer if the light/LED while doing this.
+
+*Digital camera: Uses the mini-display to show the images captured in the camera. Use the buttons in the top side to control the flash, use the camera's menus, etc. The microphone is used to record the audio of the videos. The speakers and the mini-display are used to play audiovisual files.
+
+*Webcam: The lens record the video, the mic records the audio. The mini-display show the other people in the chat, the speakers plays the sound of their voices.
+
+*Flashlight: See the article "A Note On Batteries" for more on the theme.
+
+❦Libre Cell Phone Speciƒіcation❦
+
+☙İntroduction❧
+
+A Cell phone w/ modular parts. It's like a PC w/ the size of a cell phone.
+
+☙Device Outline❧
+
+The device have two sides (upper & lower) w/ a possible articulation point, like a "flipping" cell-phone. The upper side is for a display, and holds the battery and some modules. The lower one is for attaching a controlling device of your choice; it contains a slot for a 2.5-inch (notebook) disk drive.
+
+The outer upper display in the upper side shows immediate system information (battery level, hour/date, etc ; it could also display emergency error messages, akin to a "Stderr" in the computer science). İf this display have a high resolution and the cell phone is a flip one, you can use it to control the camera module; in this case, if it’sn’t a touch screen and you want still control the camera, this area should contain the all buttons to allow you to do it.
+
+Albeit this specifications wasn’t specifically made for [“rugged”/waterproof] devices, there’s no problem to do it. However, it’s worth to note that if your device have the aforementioned articulation point, you need to pay special attention to it, being a possible point of leakage of water into it.
+
+İf possible, use the mainboard using the “Libre SBC-[G/V]PU Speciƒіcation” (see its ƒіle).
+
+There’s a “female connector area”, that could contain a socket for a cable in libre speciƒіcations, like the “Libre Cable-Connector” (see its ƒіle).
+
+You will see a battery area (see the article "A Note On Batteries" for more on the theme).
+
+¡ Ah, this is the best part! Listen (or better: read it). What makes difference here’s that you can boot an (rooted) operating system stored in an storage device attached to this cell phone (the [HD/SS]D; a memory card, or a regular flash drive); these storage devices could be either regular read/write ones or ROMs.
+
+☙Controlling Devices❧
+
+*Keypad: like the one of a cell phone.
+
+[Button Number] – [Recommendation]
+
+[row 0 – ¡ Don’t forget that zero is also a number!]:
+
+00 – [Function 00 key] (Generally a key to open a primary menu)
+
+01 – Upper directional
+
+02 – [Function 01 key] (Generally a key to open a secondary menu)
+
+[row 1]:
+
+03 – Right directional
+
+04 – [Function 02 key] (Generally a conƒіrm/click key)
+
+05 – Left directional
+
+[row 2]:
+
+06 – [Function 03 key] (generally a key to make a phone call)
+
+07 – Lower directional
+
+08 – [Function 04 key] (generally a key to end a phone call and to turn the device On/Off)
+
+[row 3]:
+
+09 – Asterisk/ƒіve-pointed star (🞯/*) key
+
+10 – Hashtag/pound (#) key
+
+11 – Number zero (0) key
+
+[row 4]:
+
+12 – Number one (3) key
+
+13 – Number two (2) key
+
+14 – Number three (1) key
+
+[row 5]:
+
+15 – Number four (6) key
+
+16 – Number ƒіve (5) key
+
+17 – Number six (4) key
+
+[row 6]:Keypad
+
+18 – Number seven (9) key
+
+19 – Number eight (8) key
+
+20 – Number nine (7) key
+
+Note: You see that this recommendation differs from the traditional layout for keypads; it’s because this layout was designed to allow the user to write number seqüences faster.
+
+*Touchpad: like the ones in the notebooks, but somewhat different. You see by its buttons that they emulate the functions of a regular computer mouse. Also, inside of its touch area, there are crossings of lines called "Zones". These zones are for resolution-independence; that way, if you touch a zone, the pointer will run through a fraction of the screen, no matter the resolution. useful for vector user interfaces.
+
+*Lower display: It must be a touchscreen (so you can control the system from it).
+
+☙External Modules❧
+
+*Rotating Camera: The camera is on a rotating axis, that allows it to be used both as a “regular” camera or a selƒіe camera.
+
+*Mic: The inner microphone is used for regular phone calls and audio recording by the user. The outer one is used when recording videos or audio of someone else.
+
+*Speakers & vibration: The inner speakers are for regular phone calls; the outer ones are for playing audio files and ring the sound of incoming phone calls. The vibrating engine/motor is for the vibrating mode when receiving phone calls, and to be used by some games.
+
+*Flashlight: The flashlight is on a rotating axis, to allow the user to illuminate himself or someone else. In the opposite side there's an rotating o[n/ff] switch, so the flashlight can be turned used both by the operating/embedded system or manually by the user; The rotating switch allows the user to control the intensity of the light, while the operating system can do the same remotely.
+
+☙Internal Modules❧
+
+Wireless: Bluetooth & Wiƒі, obviously in Libre speciƒіcations.
+
+SIM Card Reader: To receive phone calls, use mobile broadband networks, SMS, etc.
+
+Memory Card Reader: See the article "A Note On Storage Devices" for more on the theme.
+
+❦Libre All-In-One Media Player Specification❦
+
+¿ Who never faced the situation of having an all-in-one media player w/ an optical drive that stopped working? And you can’t even replace it, because each manufacturer have a different standard for it. ¿ Why they simply can’t use a standard 5.25” drive?
+
+As this is a libre specification, the recommendation is to only give support for open/libre file formats and open/libre cables/connectors in the device.
+
+It’s recommended also the use of the Libre cable-connector (see the respective files).
+
+You could connect this device to a TV or monitor via the rear I/O pins to act as a display/screen, so the device could act as a DVD/video player.
+
+At the contrary, you could also connect this device to the “digital audio out” of other device via the rear I/O pins, so this device could play the audio of that other device.
+
+Note: Many card readers that fit in a 3.5” bay have an USB port. In this case, an external optical driver could have its contents read if plugged in this port.
+
+Instead of using a combination of 5.25” + 3.5” drives, you can have a variation that uses a combination of a standard size-1 (“single”) automotive head/audio/radio unit + a 3.5” drive; or, either, a version that uses only standard size-2 (“double”) automotive head/audio/radio unit. These are commonly called DIN units (Named after the “Deutsches Institut für Normung”, a German standard organization, for their DIN 75490 standard; it’s also called ISO 7736, named after the “International Organization for Standardization”).
+
+❦General Libre Devices Specifications❦
+
+Note: These libre specifications are of no use until the technology advances to the point of 3D printing storage media compatible w/ the drives from the past. And even that it will be a pure novelty/hobby.
+
+☙Common to all the devices❧
+
+*They use the Libre Cable-Connector specification (see the file).
+
+*Connecting two wheels w/ rubber band (acting like a belt) (like in the common optical drives) ISN’T recommended, because they break too often, while the rest of the circuits are still good; In many cases people disposed DVD players when they stopped working, but the problem was actually a broken rubber band (¡ Fucking planned obsolescence!). Instead use a series of gears connected to each other, or more preferentially, a coupling rod (like the ones used in old trains) linking the two wheels. Such a little increase in the cost of the equipment, by replacing a belt/rubber band system by a gear or coupling rod system, could cause a great increase in the lifespan of the equipment, avoiding people disposing them because they think that it’s a more expensive problem to fix.
+
+*The devices have an internal RAM used to store virtual image files. These images can be burned in the real media or be read by the operating system as if they were real media (working like a hardware floppy emulator). If the “Boot Over Web” (B.O.W) specification is being used, you can turn on your machine, it will pass the control to the drive, that will follow the B.O.W specification, downloading a virtual image file (.iso or .img, for example) from an address indicated by the user to its internal RAM, later passing the control back to the firmware, that will boot that virtual image as if it were a normal physical storage media.
+
+☙Frontal panel (see the drawing file)❧
+
+All the drives uses the same standard for frontal panel (see the file; it’sn’t to scale, as it describes more than one form factor). The ejection button is an “inwards” button. You push it down (↓) to both open and close the tray.
+
+The tray is manual, so it works even when the machine runs out of electrical power. So you doesn’t need the “paperclip hole” to manually eject the media, like the other optical drives.
+
+The “ready to eject” light lets the operating system to warns the user that the media can be physically ejected.
+
+☙3.5” Drive❧
+
+The same tray can be used for zip & floppy disks, mini-optical discs, compact cassette tapes, dds tapes, etc.
+
+☙5.25” Drive❧
+
+The same tray can be used for optical discs, VHS tapes, LTO tapes, etc.
+
+Note: you put the VHS sideways and still the tray will look projected “outwards” while the VHS is used.
+
+❦Honeycomb Car System❦
+
+This is a system for mini electric vehicles. Each vehicle can run alone. But you can put them together to form a bigger vehicle through the connection points.
+
+The vehicles w/ the switch set in “user” are controlled by the ones set in “root”.
+
+❦Libre ATX❦
+
+This is a set of three boards to replace the traditional ATX board. Normally they can't do anything alone.
+
+The first one is the upper rear I/O shield board. It contains a pre-made shield. Two boards, in an upside-down position in relation to each other, can be phisically next to each other, to fully occupy the space for the upper rear I/O shield in the computer's case. They can be logically attached to each other using one of their "Data Lane" sockets (see bellow). As each one of these boards have two "Data Lane" sockets, the other will be used to connect them to the other kinds of boards.
+
+The second one is the lower rear I/O shield board. It contains the PCI Express sockets. However, if you attach a Libre SBC-[G/V]PU (see its files), it can be turned into a full-fledged computer, as it acts as a CPU and contains some memory.
+
+The third one is the frontal board, an area for RAM, processor, frontal I/O, and internal drives ([H/S]DDs, optical drive, etc). It should contain a processor socket of Libre specification. Optionally, it could contain a PCI Express socket. So there could be an special purpose PCI Express card w/ a a CPU socket of Libre specification, to attach the CPU in a vertical manner (similar in appearance to most of the popular commercial [graphics/video] card).
+
+The "Data Lane" is a bidirectional data cable (to date, optic fiber is the fastest way of data transmission) for communication between the modules. For example, the lower rear I/O shield board will be connected to the first upper rear I/O shield board; it will be connected to the second upper rear I/O shield board; it will be connected to the frontal board; the frontal board will close the circuit by connecting itself w/ the lower rear I/O shield board.
+
+The "optional screw" is a screw position that isn't present in all boards or cases, but you can still find once in a while.
+
+The "support feet" are special purpose feet that helps to support the board, since what was a single board before, now are three.
+
+Each one of these three modules use an 8-pin PCI Express power cable. Currently, it would be theoretically neccessary a converter that receives the input of the ATX 24-pin power supply cable and gives the output for these three 8-pin cables (to avoid to occupy the modular cable sockets of the modern ATX power supply models).
+
+Unnecessary to say that the firmware used in ALL of these boards should be Libre ones.
+
+It’s important to note that the developer have no obligation of using the so-called “IBM-PC” platform here, much less the X86-64 architecture; what's described here is merely a computing form-factor.
+
+❦Computing Distinctions❦
+
+It’s important to distingüish some things in computing:
+
+ISA (instruction set architecture): Processor architecture that dictates what instructions you use in the processor.
+
+I/O [Mapping/Layout]: Dictates the memory mapping, the I/O buses, firmware details, etc.
+
+Assembly syntax & mnemonics: Each assembler will have a different syntax & mnemonics for the same ISA. Two assembly languages for the same target ISA are said to be "isomorphic".
+
+Examples are:
+
+* “IBM-PC” vs “PC-98”: both used the X86 ISA Architecture, but they had different I/O [Mapping/Layout]s.
+
+*The old Altair computer could run using either X86 or Z80 processors. The same I/O [Mapping/Layout] having two alternatives of CPUs.
+
+*NASM vs AS: Two Linux assemblers w/ different syntax & mnemonics for the same x86-64 ISA. This is because the x86-64 assemblers can use either one of the so-called “AT&T” and “Intel” syntaxes. They're "isomorphic" towards the x86-64.
+
+*Z80 vs Intel 8080: The Zilog’s Z80 processor was mostly compatible w/ the Intel’s 8080, but Z80 assembly’s syntax used different mnemonics.
+
+*In the home computers of the 80s, there were the popular 6502 and the aforementioned z80 CPUs. There were a wide range of different home computer platforms for both ISA.
+
+❦Unified assembly syntax (meta-assembler)❦
+
+In theory, the creation of an assembler w/ a single unified syntax that assembles to different ISAs is possible. Just make the same mnemonic to push a different string of bytes for each ISA target (the hexadecimal codes for both the opcode & operand).
+
+💣C language: The Ticking Time Bomb Of The Free/Libre Software Community💣
+
+C is a ticking time bomb, because it’sn’t libre at all, since its main reference documents, published by the İSO (İnternational Organization for Standardization) publishes it under a non-libre license. You can’t just copy it and share it w/ the community.
+
+And worst: many programming languages are built on C.
+
+Free/Libre software community needs a new [system/low-level] programming language capable of reproducible builds (see https://reproducible-builds.org/). A language w/ no dependencies on C; and not a single line of C in any point of its toolchain.
+
+Steps:
+
+0 (because 0 is also a number) – Choose a SIMPLE Architecture (X86 is AWFUL for this purpose).
+
+1 – Create an assembler using a hex editor, and to document the assembler syntax & mnemonics for this assembler. Note here: the hex code here should be commented; also note that it's possible the creation different assemblers w/ different syntaxes & mnemonics for this same ISA.
+
+2 – Create a compiler [and/or] interpreter for this new [system/low-level] programming language using (one of the) the assembler(s) of the step above.
+
+3 – Create a compiler [and/or] interpreter for this new [system/low-level] programming language using the compiler/interpreter created at the step above.
+
+4 – Port it to other architectures using the same steps above.
+
+Note: Unnecessary to say that the programs created in all steps above should be Libre-Licensed.
+
+Some interpreters that fits into a x86-64 MBR (Master Boot Record, the 512-bytes x86-64 boot sector) are getting closer to this, as they're written in assembly. Links:
+
+https://github.com/chronicle95/MBR-Brainf_ck
+
+https://github.com/nanochess/bootBASIC
+
+🖧A Package-Manager-Agnostic Repository Structure🖧
+
+Each distro (short for "distribution") have its own repo (short for "repository"); that’s true even for distros that use the same package manager. That’s highly inefficient.
+
+Different distros using different package management systems could create a project of a shared unified repo. That could save costs of both bandwidth and hosting/storage. That would also make easier the update of the source packages in the repo.
+
+☙Basic Operation Principles❧
+
+Let’s take, for example, the following commands:
+
+apt(-get) update && apt(-get) install [whatever]
+
+brew update && brew install [whatever] (🍻)
+
+guix pull && guix install [whatever]
+
+pacman -Sy && pacman -S [whatever]
+
+¿ What all these commands have in common? Answer: The first update the package list file of the repo, while the second installs the desired package.
+
+In a shared unified repo system, each distro could keep its own package management systems normally, but the repository where these packages are located is shared among them.
+
+Each distro will have a "repository configuration" file, that holds the data of both the repo’s URI (Uniform Resource Identifier) and the [black/white]list of the packages (but NOT any data about their versions; see bellow and in the "Synchronization Freqüency" section).
+
+¿ But if a given distro doesn’t want a given package for whatever reason? For example, a FSF-endorsed distro (https://www.gnu.org/distros/free-distros.html) that doesn’t want a given package because it doesn’t comply w/ the FSDG (Free System Distribution Guidelines – https://www.gnu.org/distros/free-system-distribution-guidelines.html). The answer: the information to solve this situation is located at the "repository configuration" file. There are the following approaches:
+
+*In a whitelist approach, only the packages listed in the file will be installed (so the undesired packages will NOT appear in the file).
+
+*In a blacklist approach, only the packages BLOCKED from installation need to be listed.
+
+☙Custom Packages❧
+
+¿ But if a given distro needs a custom/modified version of a package that already exists in the repository? ¿ Or if they need a package that, whatever the reason, isn’t present in the shared unified repo at all? Answer: in these cases, the developers of the distro can point to a custom "miniature" (small sized) repo that contain these packages, in the "repository configuration" file (probably specifying that the miniature custom repo have precedence over the large shared unified repo).
+
+☙Synchronization Freqüency❧
+
+Theoretically, as the "repository configuration" file points directly to the repo’s URI, there’s no need of doing commands in the package manager to update it very often; the same goes for a custom mini repo (see above).
+
+The explanation for this is that the repository configuration file holds only the name of the packages, but NOT any data about their versions. So when you do a command to install a package, it’s the role of the package manager to automatically compare the versions of both the package in the repo (either by simply checking the name of the package file, or by reading its inner metadata) and the one installed in the computer; so the package manager will ensure that the computer have the latest version of the package (either by installing the one from the repo or keeping the one of the machine).
+
+Updates in the repository configuration file will only be needed in rare situations, like a change in the URI of the repos or in the list of [black/white]listed packages.
+
+☙Example❧
+
+Let’s see a fictional example:
+
+Four computers that joined a shared repo called "X". Let’s see their "repository configuration" files.
+
+###Computer 00 – apt(-get) based###
+[Shared-repo-X-URI]
+[Custom-mini-repo-A-URI]
+Blacklisted_Package_E
+
+###Computer 01 – brew based###
+[Shared-repo-X-URI]
+[Custom-mini-repo-B-URI]
+Blacklisted_Package_F
+
+###Computer 02 – guix based###
+[Shared-repo-X-URI]
+[Custom-mini-repo-C-URI]
+Blacklisted_Package_G
+
+###Computer 03 – pacman based###
+[Shared-repo-X-URI]
+[Custom-mini-repo-D-URI]
+Blacklisted_Package_H
+
+###End of the files###
+
+Now let see their shared repo structure.
+
+###X Repo – Latest «stable» branch’s [folder/directory]###
+Package_A_Version_00.10.tar.xz
+Package_B_Version_01.09.tar.xz
+Package_C_Version_02.08.tar.xz
+Package_D_Version_03.07.tar.xz
+Package_E_Version_04.06.tar.xz
+Package_F_Version_05.05.tar.xz
+Package_G_Version_06.04.tar.xz
+Package_H_Version_07.03.tar.xz
+Package_I_Version_08.02.tar.xz
+Package_J_Version_09.01.tar.xz
+Package_K_Version_10.00.tar.xz
+(and so on...)
+###End of the directory###
+
+Here we can see that the "repository configuration" file in the computers neither specify the versions of the installed (or [black/white]listed) packages in the computer itself nor keeps any information about the version of the latest packages of the shared repo (or the custom mini repo). It’s the role of the package manager to check the versions of both, compare them, and ensure that the machine will have the latest version between them.
+
+Also, each one of these "repository configuration" files have autonomy to fetch specific packages other custom mini repos.
+
+☙A Generic Package Manager Structure❧
+
+*[package-manager] update
+
+Fetchs the repository configuration file. Will not be used too often (see above).
+
+*[package-manager] search [string]
+
+Search a package w/ that name or description in the repo.
+
+*[package-manager] install [whatever_0] [whatever_1] [whatever_2]
+
+Install the latest version of the listed packages.
+
+*[package-manager] [uninstall/remove] [whatever]
+
+Uninstall/Remove the package.
+
+*[package-manager] upgrade
+
+Install the latest versions of all packages under the responsibility of the package manager (and possibly also upgrade the operating system, if it's the main package manager). Already includes the aforementioned "update" sub-command.
+
+💌New Message Systems To Override Conventional Emails💌
+
+Despite being an outdated and cumbersome way of digital communication, the need of an email account is almost ubiquitous as a requirement to "sign-up" (create an account) in many websites. Websites could implement the following systems described bellow to replace the traditional forms of Signup (creating an account) and [Log/Sign]in.
+
+☙Solution: New Signup (Creating An Account) System❧
+
+A "challenge" system instead of asking for an email: The website asks for a public key from the new user (GPG, SSH, etc.). So the website uses this public key to encrypt a text file w/ a random verification code, and sends it to the user. So only the user w/ the corresponding private key will be able to decrypt it. The rest is pretty self-explanatory: he uses it to decrypt the file, insert the verification code in the website and voilà, you have your account.
+
+☙New [Log/Sign]in System❧
+
+Alternatively, the same "challenge" system could be used to do the [log/sign]in of the users: providing every time a text file w/ a random verification code, using the public key that was initially registered, and later the registered user insert it to [log/sign]in.
+
+☙Accountless Login System❧
+
+In this option the user doesn’t need to have an account. In this case, the service uses the same aforementioned challenge system; this is made in order to ensure that the user who provided a given public key also have the corresponding private key.
+
+☙"New Mail" Services❧
+
+Traditional email services store the mail received by its users (along w/ their attachments) in their own servers; this is since long before the term "cloud" become popular. In "new mail" services, this is different.
+
+To send a mail, the sender will combine his private key w/ the receiver's public key to create a "shared secret", and later use it to encrypt the file containing the mail and the attachments. And later connects to the server and informs it who will be the receiver (using the public key of the receiver as the address). The receiver connects to the server (to see if he have any mail to receive), that informs him that there's someone online ready to send him a mail. So, w/ the data provided by the server, the computer of sender will connect itself directly to the computer of the receiver, to fetch the encrypted file. The rest is pretty self-explanatory: the receiver combines his private key w/ the sender's public key to create the same "shared secret", and later use it to decrypt the file.
+
+To transmit a mail, both the users need to be online. This is because the "new mail" server doesn’t store any files; it only stores the information about the public keys of its users (the receivers). Any similarity w/ the Amule program for GNU/Linux/Unix systems isn’t a mere coincidence.
+
+The "new mail" address uses the following structure: [server]@[user’s public key].
+
+Users could connect to each other w/out the aid of a server if they know the IP (Internet Protocol) address of each other. Users inside a an interna[/l/]ocal/home network could also do it w/ their local IPs, or have a "new mail" server running inside of their local network.
+
+The "new mail" services could implement the aforementioned "new signup", "new [log/sign]in" and "accountless login" systems.
+
+It's also possible to use the aforementioned "shared secret" as an address (or account), using the following structure: [server]@[shared secret]. In this case, at least one of the users of the "shared secret" need to confirm the "challenge" to [Log/Sign]in (or create the account). The server informs the sender the data about the confirmed users in the shared secret, so the sender can send the mail to one or both of them.
+
+☙Economic Feasibility❧
+
+Disclaimer: that's just an highly [speculative/experimental/theoretical] concept from me.
+
+Ways that the "new mail" service could use to get some revenue:
+
+*Implement a system that delay reqüests (like proof-of-work, for example) from free users, while it doesn't impose it for p[aying/remium] users. That's a way of both profit and avoid DDOS (distributed denial-of-service) attacks.
+
+*Put a layer of advertising (that could be integrated into the "new mail" clients) in form of images, scrolling text, audiovisual, etc; this could be displayed while the user waits for the data reqüest (see above - so there's no reason to use ad-blocking here, as the user will have to wait anyway). Beware of malicious or disruptive ads.
+
+*Sending/showing to the users (probably during the advertising time - see above) promotional c[oupon/ode]s indicating to an online store. Every time someone use them to get a discount in a sale, the "new mail" service that indicated it gets paid; when a sale is made in this online store, the user receives an c[oupon/ode]s to use in that same "new mail" service; this last c[oupon/ode]s is inserted in the "new mail" service to reduce the delays in the reqüests (see above). So the three sides got an advantage: the user get the discount by using the first c[oupon/ode] and got a reduction in the delay in his reqüest by using the last c[oupon/ode]; the online store makes one more sale (and probably gets also a "free advertising" by being indicated in the first c[oupon/ode]; also possibly gets more users that were in search of some promotional c[oupon/ode]s in the "new mail" service); and the service is paid by having its code used (and probably gets also a "free advertising" by being indicated in the last c[oupon/ode]; also possibly gets more users that were in search of some promotional c[oupon/ode]s in the online store).
+
+*Having its own online store (probably selling apparel/items bearing its brand, to get some "free advertising").
+
+*Accept donations from the users (cryptocurrency or any other form of payment).
+
+*The "new mail" service could store in their servers the messages [from/to] the paying users, up to a givenlimit. Higher the pay, bigger the storage space and time.
+
+☙Example❧
+
+Let’s see a fictional example:
+
+John Smith – Subscriber of the X "new mail" service – Public key: 0123 – Private key: 4567 – Therefore his address is: [Server-X]@0123
+
+Peter Sullivan – Subscriber of the Y "new mail" service – Public key: 89AB – Private key: CDEF – Therefore his address is: [Server-Y]@89AB
+
+Z "new mail" service: accountless login.
+
+John registered his public key "0123" in the X "new mail" service, that sent him back an encrypted file. He used his private key "4567" to decrypt the file; the opened file shew a string of text: "UVWXYZ". he typed it in the X "new mail" service, that confirmed the account creation. Peter used the same method in the Y "new mail" service w/ his public "89AB" and private "CDEF" keys.
+
+Peter wants to send a mail to John. Peter will use the John's 0123 public key w/ his own CDEF private key to encrypt the mail w/ attachments to him. He will use his web browser (or in a dedicated client [program/application]) to connect himself to the server X. So he will contact the server X to inform that he have a mail to the user 0123; if he’s using a dedicated client in his own computer, he will inform to the program that he have a mail to the user [Server-X]@0123, and the program, by its turn, will contact the server.
+
+When John turns his computer on, he will [Log/Sign]in to the Server X (it would be a good idea to implement here the method explained at the "Solution To [Log/Sign]in" section), either in a web browser or in a dedicated client. The server X will then inform that he have a mail to receive. So the [web browser/dedicated client] will run a script to connect the Peter’s computer directly to the John’s computer, so John’s computer can fetch the mail packet file from the Peter’s computer. Now John uses the Peter's 89AB public key w/ his own 4567 private key to decrypt it.
+
+If John wishes to send a reply, he does the same procedure. He will encrypt his outgoing mail w/ the Peter's 89AB public key w/ his own 4567 private key, connects to the Server Y to inform it that he have a mail to the user 89AB, and later wait Peter to connect to fetch his mail. Later Peter uses the John's 0123 public key w/ his own CDEF private key to decrypt it.
+
+They could also both connect to the Z server (accountless login), and repeat aforementioned steps to start exchanging mails. Or they could connect to each other w/out the aid of a server if they know the IP of each other.
+
+If both John and Peter wishes to receive an email from someone else, John uses his own private key and Peter's public key to create a "shared secret"; let's call it "GHIJ"; Peter uses his own private key and John's public key to get the same "shared secret". So they could use "[Server-Z]@GHIJ" as their shared address.
+
+☙Other Solution: A New Take On Conventional Emails❧
+
+It could be created a software package (Libre-sourced) consisting in an easily configurable email server. It runs inside the user's machine. The mail address is [User]@[[IP Address]].
+
+This is the address that the user provides when signing-up to a website that asks for the new user's email.
+
+☙Other Solution: A Brand-New Mail Protocol❧
+
+It could be created a software package (Libre-sourced) consisting in a new protocol for mail through the internet. Like the solution «A New Take On Conventional Emails», the server runs inside the user's machine. 
+
+The mail address is [User]@[IP Address]:[Port Number]. If the user doesn't provide the port number, the website in that he's signing up makes some default assumption.
+
+The user must turn on his personal server just before providing his mail address to the website.
+
+📶A Censorship-Resistant Local Wireless Network📶
+
+It could be created (in libre-designed mobile devices, of course) a system for a censorship-resistant local wireless network.
+
+It used the same antenna for [wiƒі/5G (mobile broadband networks)/Bluetooth]. The user have an application to regulate the range of the signal.
+
+Each user can make his profile available to others. A profile can be either encrypted or unencrypted. In the case of the encrypted profile, other users can only access his profile through a pre-shared password or public key (in the case of an asymmetric key system).
+
+The user’s profile have a homepage similar of a web page, where the user can present himself, post [photo/image/picture]s and files to be downloaded by the other local users (ebooks, multimedia, etc.). The other users can also choose to send files to the profile of this user; this user have the choice of having his profile either closed or open to incoming files, or to receive only selective files, or to receive only files from certain selective users.
+
+The fact that these networks don’t need to be connected to the internet to exist, and the possibility from the users of regulating the range of the signal and to encrypt the homepage of their profiles, make these networks censorship-resistant: the government eavesdropping becomes harder, and neither the government nor the “Big Tech” companies can [take/shut]down these profiles, as they’ren’t in their network infrastructure.
+
+For a hypothetical modular system for mobile devices (I just treated about this in this technological section), It could be created a shortwave transmitter for the smartphone, for working w/ this network.

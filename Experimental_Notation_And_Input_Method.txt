@@ -1,0 +1,17 @@
+❦Experimental Notation And Input Method❦
+
+By Felipe Lohan Pinheiro Da Silva
+
+(See the drawing file for a basic keypad w/ this type of notation)
+
+***
+
+Each group of calcultions is separated; it may be a space, an underscore ("_"), etc. Each group will be called "entity" here.
+
+The equation is parsed in the direction it's written. When you press the button to close the entity, that operations are parsed.
+
+A symbol of a operation (+, -, *, ÷) between two numbers will make the operation between them (like the infix notation). The same symbols put after after the last number of the entity will make the operation between the current entity and the previous one, just like the stack of the RPN (Reverse Polish Notation).
+
+A plus-minus symbol (±) put before a number will invert its signal; if put after the number, it will invert the result of the operation. So keep in mind that, in the end of the entity, writting ±[+-*÷] is different from writting [+-*÷]±; in ±[+-*÷], you'll invert the sign of the result, and later make a operation in the stack; in [+-*÷]±, you'll make a operation in the stack, and later invert its result.
+
+An entity composed of solely operation symbols or a plus-minus symbol will be treated like the RPN stack operations.

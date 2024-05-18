@@ -1,0 +1,44 @@
+❦HAL (Hardware Abstraction Layer)❦
+
+By Felipe Lohan Pinheiro da Silva – V. 2019-Mar-19
+
+See my file about licensing to know more about it.
+
+Videophone – Computer – Mobile Devices – Type:
+
+Ringer/bell/handsfree speaker – Beep/buzzer – Outer speaker – Audio/output
+
+Handset speaker – Rear audio jack – Inner (“Handset”) speaker – Audio/output
+
+audio jack (if any) – Frontal audio jack – audio jack – Audio/output
+
+Handset mic – Rear mic jack – Embedded Microphone – Audio/input
+
+xxx – Frontal mic jack – Headset Microphone – Audio/input
+
+Status display (if any) – Std error – Outer/status/upper display (if any) – Visual/output
+
+xxx – xxx – Flashlight or LED – Visual/output
+
+Videophone display – Std out – Lower/main display – Visual/output
+
+Fax printer – Printer – xxx – General output
+
+Keypad – Keyboard – Touch keyboard – General input
+
+xxx – Pointing device (like mouse) – Touch pointing device – General input
+
+xxx – Misc. Sensors – Misc. Sensors – General input
+
+xxx – Timer/TRNG (True Random Number Generator) – Timer/TRNG (True Random Number Generator) – General input
+
+xxx – xxx – Outer camera – Visual/input
+
+Videophone camera – Webcam – Inner (“selfie”) camera – Visual/input
+
+Fax scanner – Scanner – xxx – Visual/input
+
+xxx – Partitioned/Formated media data storage (Optical drive, memory card, etc) – Partitioned/Formated media data storage (Optical drive, memory card, etc) – Data Storage
+
+xxx – General data storage (Hard Disk Drive) – ¿Internal flash storage? – Data Storage
+

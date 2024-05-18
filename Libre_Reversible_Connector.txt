@@ -1,0 +1,31 @@
+❦L.P.R.G.İ. ([Libre P2P Reversible Generic İnterface / İnterface P2P Reversível Genérica Livre])❦
+
+[By/Por]: Felipe Lohan Pinheiro da Silva
+
+***
+
+[See the Drawing fіle / Veja o arquivo de desenho]
+
+HDMİ is a proprietary interface. So İ designed an hypothetical interface that fіts in the micro-HDMİ holes for cases. The main use is for SBCs (Single Board Computers).
+
+→HDMİ é uma interface proprietária. Então, eu projetei uma interface hipotética que se encaixa nos buracos pra micro-HDMİ pra cases. O uso principal seria pra SBCs («Single Board Computers» – Computadores De Placa Única).
+
+•Libre: Libre-Licensed.
+
+→Livre: Licença Livre.
+
+•P2P: İt uses a P2P connection mode (like to the Firewire), in which each device keeps its sovereign status, instead of the traditional Slave-Master mode (like the USB).
+
+→P2P: Ela usa um modo de conexão P2P (como o Firewire), em que cada dispositivo mantém seu status soberano, em vez do tradicional modo Slave-Master (como o USB).
+
+•Reversible: İt uses an «hermaphrodite» connector, so any device can connected to any other device; you just need to rotate the [devic/cabl]es in 180°.
+
+→Reversível: Ela usa um conector «hemafrodita», de forma que qualquer dispositivo pode ser conectado a qualquer outro dispositivo; você só precisa girar os [dispositiv/cab]os em 180°.
+
+•Generic: İt can used for anything, from peripherals to theoretical storage devices.
+
+→Genérica: Pode ser usada pra qualquer coisa, desde periféricos até dispositivos de armazenamento teóricos.
+
+•Electric power: İts 12V allows a wider range of devices to be powered w/out the need for an external power source.
+
+→Energia elétrica: seus 12V permitem que um leque maior de dispositivos sejam ligados sem a necessidade duma fonte de energia externa.

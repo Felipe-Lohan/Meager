@@ -1,0 +1,48 @@
+♠♣♥♦Number Signs As Fields/Suits♦♥♣♠
+
+By Felipe Lohan Pinheiro da Silva
+
+***
+
+Note: All the equations here are converted to RPN (Reverse Polish Notation).
+
+First of all, we need [distingüish/dissociate] the sign (±) of a number from the mathematical operations (+, -, ×, ÷, √, expoentiation, logarithms, etc.).
+
+To do so, we'll replace the traditional sign's symbols ([+/plus] & [-/minus]) by a suit of cards: ♠, ♣, ♥, ♦.
+
+♠: 1st field/suit (replaces [+/plus] )
+♣: 2nd field/suit (replaces [-/minus])
+♥: 3rd field/suit
+♦: 4rd field/suit
+
+Treating the former signs merely as field/suit allows for things like square roots for negative numbers.
+
+For example, an infix √(-4) becomes ♣4_√; the result is ♣2, since ♣2_♣2_×=♣4
+
+Expoentiation is also different.
+
+For example, an infix -2^2 can be converted to ♣2_♣2_^=♣4
+
+The mathematical operation will have an [acumulato/r/egister], that's akin to a gaming table, and will dictate the current value during each step of the operation algorithm.
+
+That way, the number [zero/0] doesn't need a [sign/suit], as the zero is simply the abscence of any card in the gaming table; in other words, the abscence of any value in the [acumulato/r/egister]. Furthermore, there are ways to store signed values in binary w/out the need of keeping a dedicated bit just for the sign.
+
+Subtraction have two variants: pure, or by displaced sum.
+
+In an subtraction by displaced sum, the subtraction is executed from an [addition/sum] of a different suit.
+
+For example, 10-8 is the same as ♠10_♣8_+, ♠10_♥8_+ or ♠10_♦8_+; the result is ♠2.
+
+In an "pure" subtraction, the amount is "drained from the [acumulato/r/egister] up to the limit of the subtraction.
+
+For example, in an "pure" ♠10_♠8_-, the result would be an ♠2. However, in an "pure" ♠8_♠10_-, the result would be [0/zero], as the operation will just "drain" the amount from the [acumulato/r/egister] up to the limit of [♠10].
+
+In multiplication and divisions of the same sign, the sign is kept. But it's also possible to append an CHS (change signal) command to the end of an operation to [e/si]mulate "standard" mathematical operations. Examples:
+
+An infix (-3)×(-3) would be a positive 9. It could be converted as: ♣3_♣3_×♣.
+
+An infix (-9)÷(-3) would be a positive 3. It could be converted as: ♣9_♣3_÷♣.
+
+The implementation of this standard doesn't say what would be the sign of the result of a multiplication or division of two numbers of a different signs; however, it recomendates that the sign of the number that had the last input prevail. For example, 4♥_♦3_×=♦12, ♦12_4♥_÷=♥3
+
+It also doesn't say how should be treated the numbers whose sign wasn't specified (except for the [0/zero], see above); however, it recomendates to treat it as pertaining to the same sign of the positive numbers (♠ in this article).

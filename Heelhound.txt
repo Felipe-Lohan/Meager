@@ -1,0 +1,438 @@
+👹🐕Heelhound (HH) - A Libre Standalone Computing Platform🐕👹
+
+By Felipe Lohan Pinheiro da Silva
+
+V.: 2020-Nov-27
+
+See my file about licensing to know more about it.
+
+***
+
+👹Heelhound👹
+
+Hello World,
+Hell on the world,
+Hellhound,
+Heelhound:
+The Hellhound on heels.
+(Heelhound – By Felipe Lohan Pinheiro da Silva)
+
+Note: Probably İ will die before finishing the basic version of this document, so someone else could do it.
+
+👹Digital Data Definition👹
+
+“Digit” is the lowest level of digital information that can be stored in a given number system. The nomenclature is "[range of the number system]-it" (examples are bellow).
+
+“Bit” is the digit applied in a binary level (zero/0 or one/1). İn a punched card/tape, zero/0 is the intact surface, while one/1 is the punched surface. It's the same as a 2-it.
+
+A "nibble" is an amount of 2^2 digits, being half of a "yte"; this is equivalent to spread the digits over a two-dimensional surface of 2 by 2 digits. When the digits are binary (thus being bits), a nibble fits into a single letter in the hexadecimal system (16 possible characters ranging from 0 to 15, represented by characters from 0 to 9 and A to F), being 4 bits; by convention, in the binary case, you put a “h” after the end of the number to distingüish it from the decimal ones.
+
+“Trit” (“ternary digit” – 0, 1 & 2 in unbalanced ternary or -1, 0 & 1 in balanced ternary) is the digit applied in a ternary level. It's the same as a 3-it.
+
+“Yte” is an array of digits that is generally the lowest amount normally read by computers. By convention, treat an yte as a cube of 8 digits (2*2*2, or 2^3 digits).
+
+A “Byte” is the yte applied in a binary level. Being so, this is composed by two nibbles (8 bits). When representing a byte in a hexadecimal form, you put the “h” only after the second nibble of each byte; for example, 127 = 7Fh.
+
+A “Tryte” is the yte applied in a ternary level, composed of 8 trits.
+
+“Digital range” is the number of possible computable results in a digit or yte in a given number system. For example, a byte have a digital range = 256 (2^8, ranging from zero to FFh, that’s 255); a tryte have a digital range = 6561 (3^8, ranging from zero to 6560 in unbalanced ternary).
+
+A “sector” is the minimal cluster of ytes that programs will allocate as an “unit”. By convention, use a nomenclature is of “power-X sector”, were it havea cube w/ the size of ([power of the sector]*[size of the yte])^3 digits, or 1/[size of the yte] of this value in ytes. For example, a conventional Power-01 sector have 08*08*08 digits = 512 digits = 64 ytes; a conventional Power-02 sector have 16*16*16 digits = 4096 digits = 512 ytes.
+
+Note: despite the fact that these calculations are based on cubes, nothing prevents you to arrange the physical layout of the technology of the storage space in a hexagonal "honeycomb" tile, to [sav/maximiz]e the physical space.
+
+🐕Data Units🐕
+
+Dealing w/ the bulk of data, we have the main "bi-ytes" unit:
+
+Kibi-yte (Kiy) = 2^10 ytes = 1.024 Ytes
+
+Mebi-yte (Miy) = 2^20 ytes = 1.024 Kibi-ytes
+
+Gibi-yte (Giy) = 2^30 ytes = 1.024 Mebi-ytes
+
+Tebi-yte (Tiy) = 2^40 ytes = 1.024 Gibi-ytes
+
+Pebi-yte (Piy) = 2^50 ytes = 1.024 Tebi-ytes
+
+Exbi-yte (Eiy) = 2^60 ytes = 1.024 Pebi-ytes
+
+Zebi-yte (Ziy) = 2^70 ytes = 1.024 Exbi-ytes
+
+Yobi-yte (Yiy) = 2^80 ytes = 1.024 Zebi-ytes
+
+We also have the secondary optional decimal "a-ytes":
+
+ Kilo-yte (KY) = 1.000 -ytes
+
+ Mega-yte (MY) = (1.000)^2 -ytes = 1.000  Kilo-ytes
+
+ Giga-yte (GY) = (1.000)^3 -ytes = 1.000  Mega-ytes
+
+ Tera-yte (TY) = (1.000)^4 -ytes = 1.000  Giga-ytes
+
+ Peta-yte (PY) = (1.000)^5 -ytes = 1.000  Tera-ytes
+
+  Exa-yte (EY) = (1.000)^6 -ytes = 1.000  Peta-ytes
+
+Zetta-yte (ZY) = (1.000)^7 -ytes = 1.000   Exa-ytes
+
+Yotta-yte (YY) = (1.000)^8 -ytes = 1.000 Zetta-ytes
+
+👹Logic Gates👹
+
+Here we'll see 20 binary basic logic gates: 4 of one input, and 16 of two inputs. These should be enough to make basic computation.
+
+🐕One-input🐕
+
+*0-0 gate (One-block):
+
+A false: false
+A  true: false
+
+*1-0 gate ([Inverter/NOT]):
+
+A false: true
+A  true: false
+
+*0-1 gate (Buffer):
+
+A false: false
+A  true: true
+
+*1-1 gate (One-pass):
+
+A false: true
+A  true: true
+
+🐕Two-input🐕
+
+*0-0-0-0 gate (Two-block):
+
+A false - B false: false
+A false - B  true: false
+A  true - B false: false
+A  true - B  true: false
+
+*0-0-0-1 gate (AND):
+
+A false - B false: false
+A false - B  true: false
+A  true - B false: false
+A  true - B  true: true
+
+*0-0-1-0 gate (NIMPLY-ONE):
+
+A false - B false: false
+A false - B  true: false
+A  true - B false: true
+A  true - B  true: false
+
+*0-0-1-1 gate (DIS-TWO):
+
+A false - B false: false
+A false - B  true: false
+A  true - B false: true
+A  true - B  true: true
+
+*0-1-0-0 gate (NIMPLY-TWO):
+
+A false - B false: false
+A false - B  true: true
+A  true - B false: false
+A  true - B  true: false
+
+*0-1-0-1 gate (DIS-ONE):
+
+A false - B false: false
+A false - B  true: true
+A  true - B false: false
+A  true - B  true: true
+
+*0-1-1-0 gate (XOR):
+
+A false - B false: false
+A false - B  true: true
+A  true - B false: true
+A  true - B  true: false
+
+*0-1-1-1 gate (OR):
+
+A false - B false: false
+A false - B  true: true
+A  true - B false: true
+A  true - B  true: true
+
+*1-0-0-0 gate (NOR):
+
+A false - B false: true
+A false - B  true: false
+A  true - B false: false
+A  true - B  true: false
+
+*1-0-0-1 gate (XNOR):
+
+A false - B false: true
+A false - B  true: false
+A  true - B false: false
+A  true - B  true: true
+
+*1-0-1-0 gate (INV-DIS-ONE):
+
+A false - B false: true
+A false - B  true: false
+A  true - B false: true
+A  true - B  true: false
+
+*1-0-1-1 gate (IMPLY-TWO):
+
+A false - B false: true
+A false - B  true: false
+A  true - B false: true
+A  true - B  true: true
+
+*1-1-0-0 gate (INV-DIS-TWO):
+
+A false - B false: true
+A false - B  true: true
+A  true - B false: false
+A  true - B  true: false
+
+*1-1-0-1 gate (IMPLY-ONE):
+
+A false - B false: true
+A false - B  true: true
+A  true - B false: false
+A  true - B  true: true
+
+*1-1-1-0 gate (NAND):
+
+A false - B false: true
+A false - B  true: true
+A  true - B false: true
+A  true - B  true: false
+
+*1-1-1-1 gate (Two-pass):
+
+A false - B false: true
+A false - B  true: true
+A  true - B false: true
+A  true - B  true: true
+
+👹Comparison Operators👹
+
+The most typical comparison operators have four possible results:
+
+*Greater than (>); for example 3 > 2.
+
+*Less than (<); for example 1 < 2.
+
+*Equal than (=); for example +4 = +4.
+
+*Different than (≠); for example -3 ≠ +4.
+
+Keep in mind that, depending on the situation, the "different" (≠) operator may be compatible w/ either the "greater than" (>) or the "less than" (<) operators. 
+
+👹Zero👹
+
+0^0 = [zero/0]
+
+In [sum/addition]s or subtractions:
+
+*Any number [+ or -] [zero/0] = Itself
+
+In multiplications:
+
+*Any number (including the infinities) * [zero/0] = [zero/0]
+
+In divisions:
+
+[zero/0] ÷ [any number, including [zero/0], NaNs (see bellow) and infinities] = zero
+
+A note On signed zero: This number scheme overrides the need of a sign for zero, as its implementation DOESN'T allocate a single digit solely for the purpose of carrying the sign.
+
+👹NaN (Not A Number)👹
+
+There also the NaN (Not a Number). In this standard, we will use two types of NaNs: “Underflow NaN” and “Overflow NaN”.
+
+Underflow NaN: Mathematical operations that underflowed, the logarithm of a negative number, the square root of a negative number, the inverse sine of a value less than −1 & the inverse cosine of a value greater than 1.
+
+Overflow NaN: Mathematical operations that overflowed, the inverse sine of a value greater than 1 & the inverse cosine of a value less than -1.
+
+In [sum/addition]s:
+
+Positive Number (+) + Overflow NaN = Overflow NaN
+
+Positive Number (+) + Underflow NaN = Underflow NaN
+
+Negative Number (-) + Overflow NaN = Overflow NaN
+
+Negative Number (-) + Underflow NaN = Underflow NaN
+
+In subtractions:
+
+Positive Number (+) - Overflow NaN = Underflow NaN
+
+Positive Number (+) - Underflow NaN = Overflow NaN
+
+Negative Number (-) - Overflow NaN = Underflow NaN
+
+Negative Number (-) - Underflow NaN = Overflow NaN
+
+In multiplications or divisions:
+
+Overflow NaN (or positive number) (÷ or *) Overflow NaN (or positive number) = Overflow NaN
+
+Overflow NaN (or positive number) (÷ or *) Underflow NaN (or negative number) = Underflow NaN
+
+Underflow NaN (or negative number) (÷ or *) Underflow NaN (or negative number) = Overflow NaN
+
+👹Infinities (∞)👹
+
+In [sum/addition]s:
+
+Positive infinity (+∞) + Positive infinity (+∞) = Positive infinity (+∞)
+
+Positive infinity (+∞) + Negative infinity (-∞) = zero (0)
+
+Negative infinity (-∞) + Negative infinity (-∞) = Negative infinity (-∞)
+
+In subtractions:
+
+Positive infinity (+∞) - Positive infinity (+∞) = zero (0)
+
+Positive infinity (+∞) - Negative infinity (-∞) = Positive infinity (+∞)
+
+Negative infinity (-∞) - Positive infinity (+∞) = Negative infinity (-∞)
+
+Negative infinity (-∞) - Negative infinity (-∞) = zero (0)
+
+In [sum/addition]s or subtractions w/ any other numbers (negative or positive):
+
+Positive infinity (+∞) ± any other number = Positive infinity (+∞)
+
+Negative infinity (-∞) ± any other number = Negative infinity (-∞)
+
+In multiplications:
+
+Positive infinity (+∞) * any positive number = Positive infinity (+∞)
+
+Positive infinity (+∞) * any negative number = Negative infinity (-∞)
+
+Negative infinity (-∞) * any positive number = Negative infinity (-∞)
+
+Negative infinity (-∞) * any negative number = Positive infinity (+∞)
+
+Positive or Negative infinity (±∞) * [zero/0] = [zero/0]
+
+In divisions:
+
+Positive infinity (+∞) ÷ Positive infinity (+∞) = 1 (positive)
+
+Positive infinity (+∞) ÷ Negative infinity (-∞) = -1 (negative)
+
+Negative infinity (-∞) ÷ Positive infinity (+∞) = -1 (negative)
+
+Negative infinity (-∞) ÷ Negative infinity (-∞) = 1 (positive)
+
+Positive infinity (+∞) ÷ any other positive number or zero = Positive infinity (+∞)
+
+Positive infinity (+∞) ÷ any negative number = Negative infinity (-∞)
+
+Negative infinity (-∞) ÷ any other positive number or zero = Negative infinity (-∞)
+
+Negative infinity (-∞) ÷ any negative number = Positive infinity (+∞)
+
+In operations involving infinities against NaNs, just treat the NaN as "any negative number" if it's an "Underflow NaN" or as "any other positive number or zero" if it's an "Overflow NaN".
+
+👹Number Precedence👹
+
+[Zero in multiplication] > Infinities (∞) > NaN (Underflow & Overflow) > any other numbers.
+
+👹Recommended ALU types👹
+
+These ALUs (Arithmetic Logic Units) are capable only of addition/sum operations, but you will be able to make subtractions (explained as “X”-“Y”) w/ some code (explained as pseudocode) bellow. Having additions/sums and subtractions, you can create codes for the other arithmetic/mathematical operations.
+
+These ALUs doesn’t distingüish between negative & positive (in other words, is unsigned) and makes only operations w/ integers (in other words, no float). It’s up to the programmer to use his code to implement signed number or floating points.
+
+Open Loop type: When you sum the last digit, the carry bit (if it’s generated after a given operation) is “wasted”. For example: FFh+01h will become 00h (zero); FFh+FFh will become FEh (254); 00h-01h will become FFh (255); 00h-01h will become 01h (001).
+
+“Pulse” or “Closed Loop” type: When you sum the last digit, the carry bit (if it’s generated after a given operation) is added to the first digit (what can create a cascading effect of a new sum until all the digits involved in the sum are resolved). For example: FFh+01h will become 01h (001); FFh+FFh will become FFh (255); 00h-01h will become FEh (254); 00h-FFh will become 00h (zero).
+
+The disadvantage of this ALU type is the need for a more complicate code for subtractions. The advantage is that you can “pulse” a variable to ensure that it’s in the same value, by “injecting” into it repeated times a sum or a subtraction of the FFh value.
+
+🐕Algorithms🐕
+
+Subtraction algorithm:
+Set Y as a counter.
+Keep doing it until the Y counter is Zero.
+If X=00h (zero) then set X to: FEh (254) if it's Pulse/Closed Loop, FFh (255) if it's Open Loop; then modify the Y counter by 01.
+Else, decrease both X & Y by 1.
+
+Sum algorithm:
+Set Y as a counter.
+Keep doing it until the Y counter is Zero.
+If X=FFh (255), then set X to: 01h (01) if it's Pulse/Closed Loop, 00h (Zero) if it's Open Loop; then modify the Y counter by 01.
+Else, increase X by 1 & decrease Y by 1.
+
+👹🐕compartmentalized Computing Platform🐕👹
+
+🐕I.S.A - Instruction Set Architecture🐕
+
+Sometimes simply called "arch".
+
+It determines what instructions a given processor will perform when it receives a given digital input.
+
+🐕Universal Assembler🐕
+
+An [I.S.A]-independent assembler, written in commented raw digital data (hexadecimal code for binary). The same assembler generates different digital machine codes to different architectures.
+
+Each assembler (made by a different development team) will have a different syntax. However, different assemblers will generate the same machine code for the same I.S.A, in cases where the programmer creates a code pointing to exactly the same instructions on both. In other words, different assembler syntaxes for the same I.S.A must be isomorphic.
+
+🐕Firmware🐕
+
+The low-level software layer that integrates the components of the computer, and is responsible by the data transmission w/ the peripherals.
+
+If the computer have processors from more than one I.S.A attached to itself at the same time, the firmware will have a bytecode to manage all the bulk of the processing.
+
+🐕I/O [Mapping/Layout]🐕
+
+It's the standard that determines the [mapping/layout] of the I/O ([In/Out]put), memory, peripherals, video/graphics data transmission, and the main components of the platform.
+
+Different I.S.A.s (instruction set architectures) can share the I/O [Mapping/Layout].
+
+Each I/O [Mapping/Layout] can have more than one firmware, each one made by a different development team.
+
+🐕Hardware Components & Remote peripherals🐕
+
+Notes:
+
+•To date, the fastest technology is the optic fiber.
+
+•In this computing platform, even if no main bulk RAM is attached, the computer still should perform basic computing, using its processor registers (both from the attached processors and the microcontroller used by the firmware) and cache memory (if any); if also no mass storage devices are attached, the user should also be able to do these computing tasks by direct input (called type-in programming).
+
+•Yes, in this computing platform, [processors/RAM] are accessed remotely, just like any other peripheral. It means that, in terms of theoretical structure, sending/fetching data [from/to] the processors ISN'T different from doing it w/ a [hard disk/solid state] drive, for example.
+
+***
+
+•I/O [Shield/Cage]: A piece w/ several connectors, and perhaps some wireless technology, w/ the function of the data transmission. .
+
+•The firmware, through the mainboard or the I/O [shield/cage], communicates w/ the peripherals.
+
+•Processors: A given I/O [Mapping/Layout] should accept simultaneous connection w/ processors of different I.S.A.s.
+
+•RAM (Random Access Memory).
+
+•Basic I/O Devices: Keyboard, mouse (or other pointing devices), b[uzz/eep]ers (audio warning), LEDs (visual warning), monitor, etc.
+
+•Media drives: for [read/writ]ing data devices, like punched [card/tape]s, floppy disks, magnetic tapes, optical disks, etc.
+
+•Mass storage: Datacenters, S.A.N (Storage Area Network), N.A.S (Network Attached Storage), R.A.I.D (Redundant Array Of In[expensive/dependent] Disks), [removable/USB] drives, [hard disk/solid state] drives, etc.
+
+•Multimedia Devices: Camera (including webcam), speakers (headsets & earphones), microphone, [graphic/video] card, etc.
+
+•Printing & Graphics: Scanner and printer.
+
+•Network (including wireless): Local networks, internet, & etc.
+
+•Wireless peripherals: Bluetooth, IR (infrared), etc.
