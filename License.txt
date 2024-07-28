@@ -1,5 +1,0 @@
-The ƒіles in this repository are under the licensing model of the following links:
-
-https://github.com/Felipe-Lohan/00_-_Licensing_And_Documentation/blob/main/License.txt
-
-https://raw.githubusercontent.com/Felipe-Lohan/00_-_Licensing_And_Documentation/main/License.txt
